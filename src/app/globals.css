@@ -3,24 +3,90 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Sahilde Renk Paleti */
+  --sahil-orange: #FD8B51;    /* Ana turuncu */
+  --sahil-green: #B3D8A8;     /* Soft yeşil */
+  --sahil-yellow-light: #FADA7A; /* Açık sarı */
+  --sahil-yellow: #FFDC7F;    /* Ana sarı */
+  --sahil-green-light: #A0D683; /* Açık yeşil */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-sahil-orange: var(--sahil-orange);
+  --color-sahil-green: var(--sahil-green);
+  --color-sahil-yellow-light: var(--sahil-yellow-light);
+  --color-sahil-yellow: var(--sahil-yellow);
+  --color-sahil-green-light: var(--sahil-green-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* Dark mode desteğini kaldırıyoruz - her zaman açık tema */
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--background) !important;
+  color: var(--foreground) !important;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Opera ve diğer tarayıcılar için renk zorlaması */
+* {
+  color-scheme: light !important;
+}
+
+/* Açık tema renklerini zorla */
+html, body {
+  background-color: #ffffff !important;
+  color: #171717 !important;
+}
+
+/* Tailwind sınıfları için açık tema garantisi */
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, var(--tw-gradient-stops)) !important;
+}
+
+/* Sahilde tema gradientleri */
+.bg-sahil-gradient {
+  background: linear-gradient(135deg, var(--sahil-yellow-light) 0%, var(--sahil-green) 100%);
+}
+
+.bg-sahil-orange-gradient {
+  background: linear-gradient(135deg, var(--sahil-orange) 0%, var(--sahil-yellow) 100%);
+}
+
+.bg-sahil-green-gradient {
+  background: linear-gradient(135deg, var(--sahil-green) 0%, var(--sahil-green-light) 100%);
+}
+
+/* Text renklerini zorla */
+.text-gray-800, .text-gray-700, .text-gray-600 {
+  color: rgb(31 41 55) !important;
+}
+
+/* Sahilde renk sınıfları */
+.text-sahil-orange { color: var(--sahil-orange); }
+.text-sahil-green { color: var(--sahil-green); }
+.text-sahil-yellow { color: var(--sahil-yellow); }
+.bg-sahil-orange { background-color: var(--sahil-orange); }
+.bg-sahil-green { background-color: var(--sahil-green); }
+.bg-sahil-yellow { background-color: var(--sahil-yellow); }
+.bg-sahil-yellow-light { background-color: var(--sahil-yellow-light); }
+.bg-sahil-green-light { background-color: var(--sahil-green-light); }
+
+/* Hover efektleri */
+.hover\:bg-sahil-orange-dark:hover {
+  background-color: #E07B47;
+}
+
+.hover\:bg-sahil-green-dark:hover {
+  background-color: #9BC794;
 }
