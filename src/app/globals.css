@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fefdfb;  /* Krem rengi */
   --foreground: #171717;
   
   /* Sahilde Renk Paleti */
@@ -43,9 +43,9 @@ body {
   color-scheme: light !important;
 }
 
-/* Açık tema renklerini zorla */
+/* Açık tema renklerini zorla - krem arka plan */
 html, body {
-  background-color: #ffffff !important;
+  background-color: #fefdfb !important;  /* Krem rengi */
   color: #171717 !important;
 }
 
