@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Sahilde - Şehir Sahilinde Lezzet Servisi",
-  description: "Spor, sohbet, çalışma... Ne yapıyorsan yap, ihtiyacına özel paketler yanında!",
+  description: "Spor, sohbet, çalışma... Ne yapıyorsan yap, ihtiyacına özel paketler yanında2!",
   themeColor: "#ffffff",
   colorScheme: "light",
 };
