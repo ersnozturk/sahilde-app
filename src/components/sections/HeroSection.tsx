@@ -10,7 +10,7 @@ export default function HeroSection() {
         
           <p className="text-xl lg:text-2xl text-gray-700 mb-8 leading-relaxed">
             Spor, sohbet, çalışma... Ne yapıyorsan yap,<br />
-            <span className="font-semibold text-[#FD8B51]">ihtiyacına özel paketler</span> yanında!
+            <span className="font-semibold text-[#FD8B51]">ihtiyacına özel paketler</span> yanında3!
           </p> 
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
