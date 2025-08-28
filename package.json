@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build",
+    "deploy": "npm run export && firebase deploy --only hosting && echo '\n🎉 Deploy tamamlandı!' && echo '🌐 Default URL: https://sahilde-3434.web.app' && echo '🌐 Custom Domain: https://[YOUR_DOMAIN]' && echo '\n📝 Not: Custom domain aktifse yukarıdaki URL çalışır'"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

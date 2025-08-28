@@ -22,10 +22,17 @@ export const packageSurveys: PackageSurvey[] = [
     questions: [
       {
         id: 'sport-type',
-        type: 'multiple-choice',
-        question: 'Hangi spor aktivitelerini yapıyorsunuz?',
+        type: 'radio',
+        question: 'Hangi spor aktivitesini yapıyorsunuz?',
         options: ['Yüzme', 'Voleybol', 'Futbol', 'Koşu', 'Fitness', 'Su sporları'],
         required: true
+      },
+      {
+        id: 'sport-equipment',
+        type: 'multiple-choice',
+        question: 'Bu spor için hangi ekipmanları almak istiyorsunuz?',
+        options: [], // Dinamik olarak doldurulacak
+        required: false
       },
       {
         id: 'intensity',
@@ -184,3 +191,197 @@ export const packageSurveys: PackageSurvey[] = [
     ]
   }
 ];
+
+// Spora özel ekipman anketleri
+export const equipmentSurveys: PackageSurvey[] = [
+  {
+    packageId: 'yuzme-ekipman',
+    title: 'Yüzme Ekipmanları',
+    description: 'Yüzme için hangi ekipmanları almak istiyorsunuz?',
+    questions: [
+      {
+        id: 'swimming-equipment',
+        type: 'multiple-choice',
+        question: 'Yüzme için hangi ekipmanları almak istiyorsunuz?',
+        options: [
+          '🥽 Yüzücü gözlüğü',
+          '🏊‍♂️ Mayo/Şort',
+          '🧴 Su geçirmez güneş kremi',
+          '🩴 Havuz terliği',
+          '🏊‍♀️ Bone',
+          '💧 Su matarası',
+          'Hiçbirini istemiyorum'
+        ],
+        required: true
+      }
+    ]
+  },
+  {
+    packageId: 'voleybol-ekipman',
+    title: 'Voleybol Ekipmanları',
+    description: 'Voleybol için hangi ekipmanları almak istiyorsunuz?',
+    questions: [
+      {
+        id: 'volleyball-equipment',
+        type: 'multiple-choice',
+        question: 'Voleybol için hangi ekipmanları almak istiyorsunuz?',
+        options: [
+          '🏐 Voleybol topu',
+          '👕 Spor forması',
+          '👟 Voleybol ayakkabısı',
+          '🧤 Dizlik',
+          '🧢 Şapka',
+          '💧 Su matarası',
+          'Hiçbirini istemiyorum'
+        ],
+        required: true
+      }
+    ]
+  },
+  {
+    packageId: 'futbol-ekipman',
+    title: 'Futbol Ekipmanları',
+    description: 'Futbol için hangi ekipmanları almak istiyorsunuz?',
+    questions: [
+      {
+        id: 'football-equipment',
+        type: 'multiple-choice',
+        question: 'Futbol için hangi ekipmanları almak istiyorsunuz?',
+        options: [
+          '⚽ Futbol topu',
+          '👕 Futbol forması',
+          '👟 Krampon',
+          '🧤 Kaleci eldiveni',
+          '🦵 Tekmelik',
+          '💧 Su matarası',
+          'Hiçbirini istemiyorum'
+        ],
+        required: true
+      }
+    ]
+  },
+  {
+    packageId: 'kosu-ekipman',
+    title: 'Koşu Ekipmanları',
+    description: 'Koşu için hangi ekipmanları almak istiyorsunuz?',
+    questions: [
+      {
+        id: 'running-equipment',
+        type: 'multiple-choice',
+        question: 'Koşu için hangi ekipmanları almak istiyorsunuz?',
+        options: [
+          '👟 Koşu ayakkabısı',
+          '👕 Nefes alabilir tişört',
+          '⌚ Spor saati',
+          '💧 Su matarası',
+          '🎧 Kablosuz kulaklık',
+          '🧢 Koşu şapkası',
+          'Hiçbirini istemiyorum'
+        ],
+        required: true
+      }
+    ]
+  },
+  {
+    packageId: 'fitness-ekipman',
+    title: 'Fitness Ekipmanları',
+    description: 'Fitness için hangi ekipmanları almak istiyorsunuz?',
+    questions: [
+      {
+        id: 'fitness-equipment',
+        type: 'multiple-choice',
+        question: 'Fitness için hangi ekipmanları almak istiyorsunuz?',
+        options: [
+          '🏋️‍♂️ Antrenman eldiveni',
+          '👟 Antrenman ayakkabısı',
+          '💧 Protein shaker',
+          '🎧 Kulaklık',
+          '👕 Spor kıyafeti',
+          '🧘‍♀️ Yoga matı',
+          'Hiçbirini istemiyorum'
+        ],
+        required: true
+      }
+    ]
+  },
+  {
+    packageId: 'su-sporlari-ekipman',
+    title: 'Su Sporları Ekipmanları',
+    description: 'Su sporları için hangi ekipmanları almak istiyorsunuz?',
+    questions: [
+      {
+        id: 'watersports-equipment',
+        type: 'multiple-choice',
+        question: 'Su sporları için hangi ekipmanları almak istiyorsunuz?',
+        options: [
+          '🏄‍♂️ Wetsuit',
+          '🥽 Su sporları gözlüğü',
+          '🦺 Can yeleği',
+          '🧴 Su geçirmez çanta',
+          '🧴 Su geçirmez güneş kremi',
+          '🩴 Su ayakkabısı',
+          'Hiçbirini istemiyorum'
+        ],
+        required: true
+      }
+    ]
+  }
+];
+
+// Spora göre ekipman seçenekleri
+export const sportEquipmentOptions: { [key: string]: string[] } = {
+  'Yüzme': [
+    '🥽 Yüzücü gözlüğü',
+    '🏊‍♂️ Mayo/Şort',
+    '🧴 Su geçirmez güneş kremi',
+    '🩴 Havuz terliği',
+    '🏊‍♀️ Bone',
+    '💧 Su matarası',
+    'Hiçbirini istemiyorum'
+  ],
+  'Voleybol': [
+    '🏐 Voleybol topu',
+    '👕 Spor forması',
+    '👟 Voleybol ayakkabısı',
+    '🧤 Dizlik',
+    '🧢 Şapka',
+    '💧 Su matarası',
+    'Hiçbirini istemiyorum'
+  ],
+  'Futbol': [
+    '⚽ Futbol topu',
+    '👕 Futbol forması',
+    '👟 Krampon',
+    '🧤 Kaleci eldiveni',
+    '🦵 Tekmelik',
+    '💧 Su matarası',
+    'Hiçbirini istemiyorum'
+  ],
+  'Koşu': [
+    '👟 Koşu ayakkabısı',
+    '👕 Nefes alabilir tişört',
+    '⌚ Spor saati',
+    '💧 Su matarası',
+    '🎧 Kablosuz kulaklık',
+    '🧢 Koşu şapkası',
+    'Hiçbirini istemiyorum'
+  ],
+  'Fitness': [
+    '🏋️‍♂️ Antrenman eldiveni',
+    '👟 Antrenman ayakkabısı',
+    '💧 Protein shaker',
+    '🎧 Kulaklık',
+    '👕 Spor kıyafeti',
+    '🧘‍♀️ Yoga matı',
+    'Hiçbirini istemiyorum'
+  ],
+  'Su sporları': [
+    '🏄‍♂️ Wetsuit',
+    '🥽 Su sporları gözlüğü',
+    '🦺 Can yeleği',
+    '🧴 Su geçirmez çanta',
+    '🧴 Su geçirmez güneş kremi',
+    '🩴 Su ayakkabısı',
+    'Hiçbirini istemiyorum'
+  ]
+};

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { packageCategories } from '@/data/packages';
-import { packageSurveys } from '@/data/surveys';
+import { packageSurveys, PackageSurvey } from '@/data/surveys';
 import SurveyModal from '@/components/SurveyModal';
 
 interface CategoryCardProps {
@@ -12,7 +12,11 @@ interface CategoryCardProps {
     description: string;
     emoji: string;
     color: string;
-    packages: any[];
+    packages: Array<{
+      id: string;
+      name: string;
+      emoji: string;
+    }>;
   };
   onSelectCategory: (categoryId: string) => void;
 }
@@ -81,15 +85,11 @@ interface ActivitiesSectionProps {
   onSelectCategory: (categoryId: string) => void;
 }
 
-export default function ActivitiesSection({ onSelectCategory }: ActivitiesSectionProps) {
-  const [selectedSurvey, setSelectedSurvey] = useState<any>(null);
+export default function ActivitiesSection({ onSelectCategory: _onSelectCategory }: ActivitiesSectionProps) {
+  const [selectedSurvey, setSelectedSurvey] = useState<PackageSurvey | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [pendingCategoryId, setPendingCategoryId] = useState<string | null>(null);
 
   const handleSelectCategory = (categoryId: string) => {
-    // Kategori ID'sini sakla
-    setPendingCategoryId(categoryId);
-    
     // İlgili kategorinin anketini bul
     const survey = packageSurveys.find(s => s.packageId === categoryId);
     if (survey) {
@@ -102,17 +102,12 @@ export default function ActivitiesSection({ onSelectCategory }: ActivitiesSectio
     }
   };
 
-  const handleSurveySubmit = (data: any) => {
+  const handleSurveySubmit = (data: Record<string, unknown>) => {
     console.log('Kategori Anketi Cevapları:', data);
     console.log('Seçilen Kategori:', selectedSurvey?.packageId);
     
     // Burada Firebase'e veri gönderebilirsiniz
-    alert('Anketiniz kaydedildi! Size özel paketlerinizi görüntüleyebilirsiniz.');
-    
-    // Anket tamamlandıktan sonra kategoriyi seç
-    if (pendingCategoryId && onSelectCategory) {
-      onSelectCategory(pendingCategoryId);
-    }
+    // NOT: onSelectCategory çağrısını kaldırdık - sayfa değişmesin
     
     handleCloseModal();
   };
@@ -120,7 +115,6 @@ export default function ActivitiesSection({ onSelectCategory }: ActivitiesSectio
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedSurvey(null);
-    setPendingCategoryId(null);
   };
 
   return (

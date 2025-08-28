@@ -65,10 +65,9 @@ function PackageCard({ pkg }: PackageCardProps) {
 
 interface PackagesSectionProps {
   selectedCategory?: string;
-  onBackToCategories?: () => void;
 }
 
-export default function PackagesSection({ selectedCategory, onBackToCategories }: PackagesSectionProps) {
+export default function PackagesSection({ selectedCategory }: PackagesSectionProps) {
   // Eğer kategori seçilmişse o kategorideki paketleri, yoksa tüm paketleri göster
   const packagesToShow = selectedCategory 
     ? sahilPackages.filter(pkg => pkg.category === selectedCategory)
@@ -86,19 +85,6 @@ export default function PackagesSection({ selectedCategory, onBackToCategories }
         <div className="text-center mb-12">
           {selectedCategoryInfo ? (
             <>
-              {/* Geri dönüş butonu */}
-              <div className="flex items-center justify-center mb-6">
-                <button 
-                  onClick={onBackToCategories}
-                  className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                  <span>Kategorilere Dön</span>
-                </button>
-              </div>
-
               <div className="flex items-center justify-center mb-4">
                 <div className={`w-16 h-16 bg-gradient-to-br ${selectedCategoryInfo.color} rounded-full flex items-center justify-center mr-4`}>
                   <span className="text-3xl">{selectedCategoryInfo.emoji}</span>
@@ -121,21 +107,6 @@ export default function PackagesSection({ selectedCategory, onBackToCategories }
             </>
           )}
         </div>
-
-        {/* Kategori filtreleri (sadece tüm paketler görünümünde) */}
-        {!selectedCategory && (
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {packageCategories.map((category) => (
-              <div
-                key={category.id}
-                className={`px-4 py-2 rounded-full bg-gradient-to-r ${category.color} text-white font-medium shadow-md`}
-              >
-                {category.emoji} {category.name}
-              </div>
-            ))}
-          </div>
-        )}
-        
         {/* Paket kartları */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {packagesToShow.map((pkg) => (
@@ -145,13 +116,6 @@ export default function PackagesSection({ selectedCategory, onBackToCategories }
             />
           ))}
         </div>
-
-        {/* Boş durumu */}
-        {packagesToShow.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">Bu kategoride henüz paket bulunmuyor.</p>
-          </div>
-        )}
       </div>
     </section>
   );
