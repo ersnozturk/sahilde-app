@@ -9,6 +9,11 @@ interface SurveyQuestionRendererProps {
 export default function SurveyQuestionRenderer({ question }: SurveyQuestionRendererProps) {
   const { register, watch, formState: { errors } } = useFormContext();
   const watchedValue = watch(question.id);
+  
+  // multiple-choice için watchedValue'nun array olduğundan emin ol
+  const watchedArray = question.type === 'multiple-choice' ? 
+    (Array.isArray(watchedValue) ? watchedValue : []) : 
+    watchedValue;
 
   switch (question.type) {
     case 'text':
@@ -80,7 +85,7 @@ export default function SurveyQuestionRenderer({ question }: SurveyQuestionRende
               key={index}
               className={cn(
                 "flex items-center p-4 border rounded-lg cursor-pointer transition-all hover:bg-gray-50",
-                watchedValue?.includes(option) ? "border-blue-500 bg-blue-50" : "border-gray-200"
+                watchedArray.includes(option) ? "border-blue-500 bg-blue-50" : "border-gray-200"
               )}
             >
               <input
@@ -91,9 +96,9 @@ export default function SurveyQuestionRenderer({ question }: SurveyQuestionRende
               />
               <div className={cn(
                 "w-4 h-4 rounded border-2 mr-3 flex items-center justify-center",
-                watchedValue?.includes(option) ? "border-blue-500 bg-blue-500" : "border-gray-300"
+                watchedArray.includes(option) ? "border-blue-500 bg-blue-500" : "border-gray-300"
               )}>
-                {watchedValue?.includes(option) && (
+                {watchedArray.includes(option) && (
                   <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>

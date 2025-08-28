@@ -8,6 +8,8 @@ interface SurveySuccessPageProps {
 }
 
 export default function SurveySuccessPage({ submittedData, handleBackToSurvey, handleCloseModal }: SurveySuccessPageProps) {
+  console.log('SurveySuccessPage rendered with data:', submittedData);
+  
   const getSportEquipment = () => {
     if (submittedData?.['sport-equipment'] && Array.isArray(submittedData['sport-equipment'])) {
       return submittedData['sport-equipment'].filter((item: string) => item !== 'Hiçbirini istemiyorum');
