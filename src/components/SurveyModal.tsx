@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Send } from 'lucide-react';
@@ -22,6 +22,25 @@ export default function SurveyModal({ survey, isOpen, onClose, onSubmit }: Surve
   const currentQuestion = survey.questions[currentStep];
   const isLastStep = currentStep === survey.questions.length - 1;
   const isFirstStep = currentStep === 0;
+
+  // ESC tuşu için klavye event listener'ı ekle
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+
+    // Modal açıkken event listener'ı ekle
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyPress);
+    }
+
+    // Cleanup function - modal kapandığında veya component unmount olduğunda
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [isOpen, onClose]);
 
   const nextStep = () => {
     if (!isLastStep) {

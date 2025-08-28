@@ -16,127 +16,169 @@ export interface PackageSurvey {
 
 export const packageSurveys: PackageSurvey[] = [
   {
-    packageId: 'beach-comfort',
-    title: 'Plaj Konforu Paketi Anketi',
-    description: 'Size en uygun plaj deneyimini sunabilmek için birkaç soru yanıtlayın',
+    packageId: 'spor',
+    title: 'Spor Aktiviteleri Anketi',
+    description: 'Size en uygun spor beslenme paketini hazırlayabilmek için birkaç soru yanıtlayın',
     questions: [
       {
-        id: 'group-size',
-        type: 'radio',
-        question: 'Kaç kişilik bir grup için sipariş veriyorsunuz?',
-        options: ['1-2 kişi', '3-4 kişi', '5-6 kişi', '7+ kişi'],
-        required: true
-      },
-      {
-        id: 'dietary-preferences',
+        id: 'sport-type',
         type: 'multiple-choice',
-        question: 'Beslenme tercihleriniz nelerdir? (Birden fazla seçebilirsiniz)',
-        options: ['Vejetaryen', 'Vegan', 'Glutensiz', 'Helal', 'Özel diyet yok'],
+        question: 'Hangi spor aktivitelerini yapıyorsunuz?',
+        options: ['Yüzme', 'Voleybol', 'Futbol', 'Koşu', 'Fitness', 'Su sporları'],
         required: true
       },
       {
-        id: 'preferred-time',
+        id: 'intensity',
         type: 'radio',
-        question: 'Tercih ettiğiniz teslimat saati?',
-        options: ['09:00-12:00', '12:00-15:00', '15:00-18:00', '18:00-21:00'],
-        required: true
-      },
-      {
-        id: 'location',
-        type: 'text',
-        question: 'Plajdaki konumunuz (örn: şemsiye no, işaret noktası)',
-        placeholder: 'Mavi şemsiye, 15 numaralı şezlong yanı...',
-        required: true
-      },
-      {
-        id: 'special-requests',
-        type: 'textarea',
-        question: 'Özel istekleriniz var mı?',
-        placeholder: 'Ekstra sos, soğuk içecek tercihi, alerji durumu vb...',
-        required: false
-      }
-    ]
-  },
-  {
-    packageId: 'water-sports',
-    title: 'Su Sporları Enerji Paketi Anketi',
-    description: 'Su sporları aktiviteniz için enerji paketinizi özelleştirelim',
-    questions: [
-      {
-        id: 'activity-type',
-        type: 'multiple-choice',
-        question: 'Hangi su sporları aktivitelerini yapıyorsunuz?',
-        options: ['Sörf', 'Jet-ski', 'Parasailing', 'Dalış', 'Yüzme', 'Diğer'],
-        required: true
-      },
-      {
-        id: 'energy-level',
-        type: 'radio',
-        question: 'Enerji ihtiyacınız nasıl?',
-        options: ['Hafif atıştırmalık', 'Orta düzey beslenme', 'Yoğun enerji desteği'],
-        required: true
-      },
-      {
-        id: 'hydration-preference',
-        type: 'radio',
-        question: 'Hidrasyon tercihiniz?',
-        options: ['Su', 'Sporcu içecekleri', 'Taze meyve suyu', 'Karışık'],
+        question: 'Spor yoğunluğunuz nasıl?',
+        options: ['Hafif', 'Orta', 'Yoğun', 'Profesyonel'],
         required: true
       },
       {
         id: 'timing',
         type: 'radio',
-        question: 'Ne zaman tüketmeyi planlıyorsunuz?',
-        options: ['Aktivite öncesi', 'Aktivite arası', 'Aktivite sonrası'],
+        question: 'Genellikle hangi saatlerde spor yapıyorsunuz?',
+        options: ['Sabah (06:00-10:00)', 'Öğle (10:00-14:00)', 'İkindi (14:00-18:00)', 'Akşam (18:00-22:00)'],
         required: true
       },
       {
-        id: 'contact',
-        type: 'text',
-        question: 'İletişim numaranız',
-        placeholder: '+90 5XX XXX XX XX',
+        id: 'nutrition-goal',
+        type: 'radio',
+        question: 'Beslenme hedefiniz nedir?',
+        options: ['Enerji artışı', 'Kas gelişimi', 'Toparlanma', 'Kilo kontrolü'],
+        required: true
+      },
+      {
+        id: 'dietary-restrictions',
+        type: 'multiple-choice',
+        question: 'Beslenme kısıtlarınız var mı?',
+        options: ['Vejetaryen', 'Vegan', 'Glutensiz', 'Laktozsuz', 'Yok'],
+        required: false
+      }
+    ]
+  },
+  {
+    packageId: 'ders',
+    title: 'Ders Çalışma Anketi',
+    description: 'Çalışma veriminizi artıracak beslenme paketini özelleştirelim',
+    questions: [
+      {
+        id: 'study-duration',
+        type: 'radio',
+        question: 'Genellikle ne kadar süre ders çalışıyorsunuz?',
+        options: ['1-2 saat', '2-4 saat', '4-6 saat', '6+ saat'],
+        required: true
+      },
+      {
+        id: 'study-time',
+        type: 'multiple-choice',
+        question: 'Hangi saatlerde çalışıyorsunuz?',
+        options: ['Sabah (06:00-12:00)', 'Öğle (12:00-18:00)', 'Akşam (18:00-24:00)', 'Gece (24:00-06:00)'],
+        required: true
+      },
+      {
+        id: 'focus-issues',
+        type: 'multiple-choice',
+        question: 'Odaklanma konusunda hangi sorunlarınız var?',
+        options: ['Çabuk yorulma', 'Dikkat dağılması', 'Uykusuzluk', 'Stres', 'Sorun yok'],
+        required: true
+      },
+      {
+        id: 'caffeine-preference',
+        type: 'radio',
+        question: 'Kafein tüketiminiz nasıl?',
+        options: ['Hiç tüketmem', 'Az tüketirim', 'Orta düzeyde', 'Çok tüketirim'],
+        required: true
+      },
+      {
+        id: 'snack-preference',
+        type: 'radio',
+        question: 'Çalışırken atıştırmalık tercihiniz?',
+        options: ['Tatlı', 'Tuzlu', 'Sağlıklı', 'Karışık'],
         required: true
       }
     ]
   },
   {
-    packageId: 'family-fun',
-    title: 'Aile Eğlence Paketi Anketi',
-    description: 'Ailenizin plaj gününü mükemmel hale getirelim',
+    packageId: 'sosyal',
+    title: 'Sosyal Aktiviteler Anketi',
+    description: 'Arkadaşlarınızla geçireceğiniz keyifli zamanlar için paketinizi özelleştirelim',
     questions: [
       {
-        id: 'children-ages',
-        type: 'text',
-        question: 'Çocukların yaşları (varsa)',
-        placeholder: 'Örn: 5, 8, 12 yaş',
-        required: false
-      },
-      {
-        id: 'food-preferences',
-        type: 'multiple-choice',
-        question: 'Aile üyelerinin yemek tercihleri?',
-        options: ['Çocuk dostu', 'Sağlıklı seçenekler', 'Geleneksel tatlar', 'Uluslararası lezzetler'],
+        id: 'group-size',
+        type: 'radio',
+        question: 'Kaç kişilik bir grup olarak geliyorsunuz?',
+        options: ['2-3 kişi', '4-6 kişi', '7-10 kişi', '10+ kişi'],
         required: true
       },
       {
-        id: 'package-size',
-        type: 'radio',
-        question: 'Paket boyutu tercihiniz?',
-        options: ['Küçük aile (2-3 kişi)', 'Orta aile (4-5 kişi)', 'Büyük aile (6+ kişi)'],
+        id: 'activity-type',
+        type: 'multiple-choice',
+        question: 'Hangi sosyal aktiviteleri yapıyorsunuz?',
+        options: ['Sohbet', 'Oyun oynama', 'Müzik dinleme', 'Fotoğraf çekimi', 'Piknik'],
         required: true
       },
       {
-        id: 'entertainment',
-        type: 'multiple-choice',
-        question: 'Hangi eğlence aktivitelerine katılmak istiyorsunuz?',
-        options: ['Plaj oyunları', 'Müzik', 'Çocuk animasyonu', 'Fotoğraf çekimi'],
+        id: 'sharing-preference',
+        type: 'radio',
+        question: 'Paylaşım tercihiniz nasıl?',
+        options: ['Herkes kendi yemeğini yer', 'Paylaşımlı büyük tabaklar', 'Karışık', 'Önemli değil'],
+        required: true
+      },
+      {
+        id: 'occasion',
+        type: 'radio',
+        question: 'Özel bir durum var mı?',
+        options: ['Doğum günü', 'Mezuniyet', 'Buluşma', 'Sadece eğlence'],
         required: false
       },
       {
-        id: 'delivery-time',
+        id: 'budget-range',
         type: 'radio',
-        question: 'Tercih ettiğiniz teslimat zamanı?',
-        options: ['Sabah (09:00-12:00)', 'Öğle (12:00-15:00)', 'İkindi (15:00-18:00)'],
+        question: 'Bütçe aralığınız?',
+        options: ['Ekonomik', 'Orta', 'Premium', 'Önemli değil'],
+        required: true
+      }
+    ]
+  },
+  {
+    packageId: 'aciktim',
+    title: 'Açlık Giderme Anketi', 
+    description: 'Açlığınızı en iyi şekilde giderecek paketinizi belirleyelim',
+    questions: [
+      {
+        id: 'hunger-level',
+        type: 'radio',
+        question: 'Açlık seviyeniz nasıl?',
+        options: ['Hafif atıştırmalık', 'Orta düzey açlık', 'Çok açım', 'Aşırı açım'],
+        required: true
+      },
+      {
+        id: 'meal-timing',
+        type: 'radio',
+        question: 'Bu hangi öğününüzün yerini tutuyor?',
+        options: ['Kahvaltı', 'Ara öğün', 'Öğle yemeği', 'Akşam yemeği', 'Gece atıştırması'],
+        required: true
+      },
+      {
+        id: 'food-preference',
+        type: 'multiple-choice',
+        question: 'Hangi tür yiyecekleri tercih ediyorsunuz?',
+        options: ['Tatlı', 'Tuzlu', 'Sıcak yemek', 'Soğuk yemek', 'Meyve', 'Protein ağırlıklı'],
+        required: true
+      },
+      {
+        id: 'portion-size',
+        type: 'radio',
+        question: 'Porsiyon boyutu tercihiniz?',
+        options: ['Küçük', 'Orta', 'Büyük', 'Çok büyük'],
+        required: true
+      },
+      {
+        id: 'eating-speed',
+        type: 'radio',
+        question: 'Ne kadar çabuk yemek istiyorsunuz?',
+        options: ['Hemen (5 dk)', 'Çabuk (10 dk)', 'Normal (15 dk)', 'Rahat rahat'],
         required: true
       }
     ]
