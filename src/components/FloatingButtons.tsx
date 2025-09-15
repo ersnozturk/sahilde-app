@@ -1,11 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ChevronUp, MessageCircle, X } from 'lucide-react';
+import { ChevronUp, MessageCircle, X, ClipboardList } from 'lucide-react';
+import SurveyModal from './SurveyModal';
+import { packageSurveys } from '@/data/surveys';
 
 export default function FloatingButtons() {
   const [isVisible, setIsVisible] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isSurveyOpen, setIsSurveyOpen] = useState(false);
 
   // Scroll durumunu takip et
   useEffect(() => {
@@ -42,6 +45,10 @@ export default function FloatingButtons() {
     setIsContactOpen(false);
   };
 
+  const handleSurveySubmit = (data: Record<string, unknown>) => {
+    console.log('Survey submitted:', data);
+  };
+
   return (
     <>
       {/* Floating Buttons Container */}
@@ -70,7 +77,24 @@ export default function FloatingButtons() {
             </span>
           </div>
         </button>
+
+        {/* Test Survey Button */}
+        <button
+          onClick={() => setIsSurveyOpen(true)}
+          className="group bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center gap-2"
+        >
+          <ClipboardList size={20} />
+          <span className="text-sm font-medium whitespace-nowrap">Test Anketi</span>
+        </button>
       </div>
+
+      {/* Survey Modal */}
+      <SurveyModal
+        survey={packageSurveys[0]} // Spor anketi
+        isOpen={isSurveyOpen}
+        onClose={() => setIsSurveyOpen(false)}
+        onSubmit={handleSurveySubmit}
+      />
 
       {/* Contact Modal */}
       {isContactOpen && (
