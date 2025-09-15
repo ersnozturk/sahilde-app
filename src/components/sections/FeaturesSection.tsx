@@ -1,24 +1,24 @@
 export default function FeaturesSection() {
   const features = [
     {
-      icon: "📍",
-      title: "Konum Bazlı",
-      description: "Bulunduğun sahile özel paketler"
+      icon: "🏖️",
+      title: "Sahile Özel",
+      description: "Her sahilin kendine özgü lezzetleri"
     },
     {
       icon: "⚡",
-      title: "Hızlı Teslimat",
-      description: "15 dakikada kapında"
+      title: "Anında Teslimat",
+      description: "Sahildeyken 15 dakikada yanında"
     },
     {
       icon: "🎯",
-      title: "Kişiselleştirilmiş",
-      description: "Aktivitene göre özel öneriler"
+      title: "Aktivite Bazlı",
+      description: "Ne yapıyorsan ona özel paketler"
     },
     {
-      icon: "💚",
-      title: "Sağlıklı Seçenekler",
-      description: "Besleyici ve kaliteli ürünler"
+      icon: "🌊",
+      title: "Sahil Tecrübesi",
+      description: "Sahil keyfini maksimuma çıkar"
     }
   ];
 
@@ -27,9 +27,9 @@ export default function FeaturesSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-            Neden Sahilde?
+            Neden Sahile.in?
           </h2>
-          <p className="text-lg text-gray-600">Sahil deneyimini bir üst seviyeye taşıyan özellikler</p>
+          <p className="text-lg text-gray-600">Sahil deneyimini mükemmel kılan özelliklerle yanınızdayız</p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">

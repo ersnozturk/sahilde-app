@@ -4,15 +4,18 @@ export default function CTASection() {
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Sahil Macerası Başlasın! 🏖️
+            Sahile İnme Zamanı! 🌊
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Lokasyonunu paylaş, ihtiyacına özel paketini seç,<br />
-            15 dakikada kapında olsun!
+            Sahildeki konumunu paylaş, aktivitene özel paketini seç,<br />
+            sahil keyfin 15 dakikada katlanarak artsın!
+          </p>
+          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Sahil keyfinizi doruğa çıkaracak lezzetli paketlerimizi keşfedin. Sipariş vermek için WhatsApp&apos;tan bize ulaşın!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white hover:bg-gray-50 text-[#FD8B51] font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Hemen Başla
+              Sahile.in&apos;e Başla 🏖️
             </button>
             <button className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold py-4 px-8 rounded-2xl border border-white/30 hover:border-white/50 transition-all duration-300">
               Nasıl Çalışır?

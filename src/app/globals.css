@@ -10,6 +10,21 @@
   --sahil-yellow-light: #FADA7A; /* Açık sarı */
   --sahil-yellow: #FFDC7F;    /* Ana sarı */
   --sahil-green-light: #A0D683; /* Açık yeşil */
+  
+  /* Modal ve form elementleri için */
+  --primary: #3B82F6;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #1E293B;
+  --accent: #F8FAFC;
+  --accent-foreground: #1E293B;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #3B82F6;
+  --background: #FFFFFF;
+  --foreground: #0F172A;
 }
 
 :root {
@@ -89,4 +104,105 @@ html, body {
 
 .hover\:bg-sahil-green-dark:hover {
   background-color: #9BC794;
+}
+
+/* Modal ve form stilleri */
+.modal-overlay {
+  backdrop-filter: blur(4px);
+}
+
+/* Custom scrollbar for modal */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
+/* Form focus states */
+input:focus, textarea:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Custom radio button styles */
+.custom-radio {
+  appearance: none;
+  background-color: white;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  transition: all 0.2s;
+}
+
+.custom-radio:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Custom checkbox styles */
+.custom-checkbox {
+  appearance: none;
+  background-color: white;
+  border: 2px solid #d1d5db;
+  border-radius: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+  transition: all 0.2s;
+}
+
+.custom-checkbox:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.3s ease-out;
+}
+
+/* Responsive modal */
+@media (max-width: 640px) {
+  .modal-content {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+}
+
+/* Progress bar */
+.progress-bar {
+  transition: width 0.3s ease-in-out;
 }

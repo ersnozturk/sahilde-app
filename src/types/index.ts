@@ -22,6 +22,7 @@ export interface Package {
   emoji: string;
   targetAudience: string;
   price: number;
+  category: 'spor' | 'ders' | 'sosyal' | 'aciktim';
   items: {
     productId: string;
     quantity: number;

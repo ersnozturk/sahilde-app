@@ -13,9 +13,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sahilde - Şehir Sahilinde Lezzet Servisi",
-  description: "Spor, sohbet, çalışma... Ne yapıyorsan yap, ihtiyacına özel paketler yanında!",
-  themeColor: "#ffffff",
+  title: "Sahile.in - Sahil Deneyimini Mükemmelleştir",
+  description: "Sahile inerken aktivitene özel lezzetli paketlerle sahil keyfi doruğa çıkar! Spor, sohbet, çalışma için özel beslenme çözümleri.",
+  keywords: "sahil, deniz, atıştırmalık, spor, beslenme, teslimat, sahile.in",
+  authors: [{ name: "Sahile.in Ekibi" }],
+  openGraph: {
+    title: "Sahile.in - Sahil Deneyimini Mükemmelleştir",
+    description: "Sahile inerken aktivitene özel lezzetli paketlerle sahil keyfi doruğa çıkar!",
+    url: "https://sahile.in",
+    siteName: "Sahile.in",
+    locale: "tr_TR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sahile.in - Sahil Deneyimini Mükemmelleştir",
+    description: "Sahile inerken aktivitene özel lezzetli paketlerle sahil keyfi doruğa çıkar!",
+  },
+  themeColor: "#FD8B51",
   colorScheme: "light",
 };
 
